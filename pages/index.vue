@@ -1,104 +1,95 @@
 <template>
   <div class="container">
+    <Navbar />
     <div>
       <h1 class="title">nuxt-typed-vuex-example</h1>
       <h2 class="subtitle">Example project for nuxt-typed-vuex.</h2>
-      
-        <div class="con">
-                <div class="row">Email: {{ email }}</div>
-                <div class="row"><button @click="setEmail">Set email</button></div>
-        </div>
 
-        <div class="con">
-          <p>count is :&nbsp; {{currentCount}}</p>
-        </div>
+      <div class="con">
+        <div class="row">Email: {{ email }}</div>
+        <div class="row"><button @click="setEmail">Set email</button></div>
+      </div>
 
-        <div class="containerr">
-            <div class="bt" @click="increasing">inctrease</div>
-            <div class="bt" @click="decreasing">decrease</div> <br>
-        </div>
+      <div class="con">
+        <p>count is :&nbsp; {{ currentCount }}</p>
+      </div>
 
-        <div v-show="shown" class="alrt">
-            <p > really want to decrease ? </p>
-            <button  @click="allowanceChanger"  class="bt"> yes </button>
-        </div>  
+      <div class="containerr">
+        <div class="bt" @click="increasing">inctrease</div>
+        <div class="bt" @click="decreasing">decrease</div>
+        <br />
+      </div>
 
-        <div id="snackbar">Go on ...</div>
+      <div v-show="shown" class="alrt">
+        <p>really want to decrease ?</p>
+        <button @click="allowanceChanger" class="bt">yes</button>
+      </div>
 
-
+      <div id="snackbar">Go on ...</div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Watch } from 'vue-property-decorator'
-import Logo from '~/components/Logo.vue'
+import { Vue, Component, Watch } from "vue-property-decorator";
 
 @Component({
-  components: {
-    Logo,
-  },
+  components: {},
 })
 export default class HomePage extends Vue {
-
-   public currentCount = 0
-   public shown = false
+  public currentCount = 0;
+  public shown = false;
 
   //email
-  get email()  {
-    return this.$accessor.email
+  get email() {
+    return this.$accessor.email;
   }
 
   setEmail() {
-    this.$accessor.setEmail('test@email.com')
+    this.$accessor.setEmail("test@email.com");
   }
 
   //counter
   get count() {
-    return this.$accessor.counter ;
+    return this.$accessor.counter;
   }
 
-  increasing() :void {
-    let updatedCount = this.currentCount ++
-     this.$accessor.increase(updatedCount)
+  increasing(): void {
+    let updatedCount = this.currentCount++;
+    this.$accessor.increase(updatedCount);
   }
 
-  decreasing() :void {
-    let updatedCount = this.currentCount --
-    this.$accessor.decrease(updatedCount)
+  decreasing(): void {
+    let updatedCount = this.currentCount--;
+    this.$accessor.decrease(updatedCount);
   }
 
-  get underZeroAllowance() :boolean {
-      return this.$accessor.underZeroAllowance
+  get underZeroAllowance(): boolean {
+    return this.$accessor.underZeroAllowance;
   }
-
 
   //watchers
-  @Watch('currentCount')
-  counterWatcher(val : number ) {
+  @Watch("currentCount")
+  counterWatcher(val: number) {
     if (val <= 0 && !this.underZeroAllowance) {
-      this.currentCount = 0
-     this.shown = true
-    }
-     else {
-      this.shown  = false
+      this.currentCount = 0;
+      this.shown = true;
+    } else {
+      this.shown = false;
     }
   }
 
-  allowanceChanger(){
-    this.$accessor.alowanceChnger(true)
-    this.currentCount = -1
-    this.shown = false
+  allowanceChanger() {
+    this.$accessor.alowanceChnger(true);
+    this.currentCount = -1;
+    this.shown = false;
 
-    let snackbar = document.getElementById("snackbar") as HTMLDivElement ;
+    let snackbar = document.getElementById("snackbar") as HTMLDivElement;
     snackbar.className = "show";
-    setTimeout(()=>{
-       snackbar.className = snackbar.className.replace("show", "");
-    },1000)
-
+    setTimeout(() => {
+      snackbar.className = snackbar.className.replace("show", "");
+    }, 1000);
   }
-
-  
 }
 </script>
 
@@ -107,15 +98,15 @@ export default class HomePage extends Vue {
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
@@ -124,8 +115,8 @@ export default class HomePage extends Vue {
 }
 
 .con {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300px;
   font-size: 50px;
@@ -155,19 +146,19 @@ export default class HomePage extends Vue {
   --feedback-form-input: #f4f4f4;
 }
 
-
-.center-content, .submit-feedback, .containerr {
+.center-content,
+.submit-feedback,
+.containerr {
   display: flex;
   place-content: center;
-  height:4rem
+  height: 4rem;
 }
 
 .containerr {
   height: 15vh;
   justify-content: center;
-  flex-direction: row; ; 
+  flex-direction: row;
   gap: 1rem;
-  
 }
 
 .submit-feedback {
@@ -197,27 +188,27 @@ export default class HomePage extends Vue {
   }
 }
 
-.bt{
-
-/* CSS */
+.bt {
+  /* CSS */
 
   align-items: center;
   appearance: none;
   background-color: #fff;
   border-radius: 24px;
   border-style: none;
-  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
+    rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
   box-sizing: border-box;
   color: #3c4043;
   cursor: pointer;
   display: inline-flex;
   fill: currentcolor;
-  font-family: "Google Sans",Roboto,Arial,sans-serif;
+  font-family: "Google Sans", Roboto, Arial, sans-serif;
   font-size: 14px;
   font-weight: 500;
   height: 48px;
   justify-content: center;
-  letter-spacing: .25px;
+  letter-spacing: 0.25px;
   line-height: normal;
   max-width: 100%;
   overflow: visible;
@@ -225,24 +216,26 @@ export default class HomePage extends Vue {
   position: relative;
   text-align: center;
   text-transform: none;
-  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 15ms linear 30ms, transform 270ms cubic-bezier(0, 0, 0.2, 1) 0ms;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   width: auto;
-  will-change: transform,opacity;
+  will-change: transform, opacity;
   z-index: 0;
 }
 
 .bt:hover {
-  background: #F6F9FE;
+  background: #f6f9fe;
   color: #174ea6;
 }
 
 .bt:active {
-  box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
+  box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%),
+    0 8px 12px 6px rgb(60 64 67 / 15%);
   outline: none;
-  transform: scale(.85);
+  transform: scale(0.85);
 }
 
 .bt:focus {
@@ -251,24 +244,28 @@ export default class HomePage extends Vue {
 }
 
 .bt:not(:disabled) {
-  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
 }
 
 .bt:not(:disabled):hover {
-  box-shadow: rgba(60, 64, 67, .3) 0 2px 3px 0, rgba(60, 64, 67, .15) 0 6px 10px 4px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0 2px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 6px 10px 4px;
 }
 
 .bt:not(:disabled):focus {
-  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
 }
 
 .bt:not(:disabled):active {
-  box-shadow: rgba(60, 64, 67, .3) 0 4px 4px 0, rgba(60, 64, 67, .15) 0 8px 12px 6px;
-  
+  box-shadow: rgba(60, 64, 67, 0.3) 0 4px 4px 0,
+    rgba(60, 64, 67, 0.15) 0 8px 12px 6px;
 }
 
 .button-17:disabled {
-  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
 }
 
 /* snackbar */
@@ -295,26 +292,46 @@ export default class HomePage extends Vue {
 }
 
 @-webkit-keyframes fadein {
-  from {bottom: 0; opacity: 0;} 
-  to {bottom: 30px; opacity: 1;}
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
 }
 
 @keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes fadeout {
-  from {bottom: 30px; opacity: 1;} 
-  to {bottom: 0; opacity: 0;}
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
 }
 
 @keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
 }
-
-
-
-
 </style>
