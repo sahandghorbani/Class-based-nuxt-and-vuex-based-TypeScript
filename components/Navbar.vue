@@ -1,16 +1,18 @@
 <template>
   <div>
-    <h2 class="card-5">{{ Navbar_Title }}</h2>
+    <h2 class="card-5">
+      {{ Navbar_Title }}
+    </h2>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator";
+import { Vue, Component } from 'vue-property-decorator'
 
 @Component
 export default class Navbar extends Vue {
-  get Navbar_Title() {
-    return this.$accessor.navbar_Title;
+  get Navbar_Title () {
+    return this.$accessor.navbar_Title
   }
 }
 </script>

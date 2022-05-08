@@ -2,12 +2,22 @@
   <div class="container">
     <Navbar />
     <div>
-      <h1 class="title">nuxt-typed-vuex-example</h1>
-      <h2 class="subtitle">Example project for nuxt-typed-vuex.</h2>
+      <h1 class="title">
+        nuxt-typed-vuex-example
+      </h1>
+      <h2 class="subtitle">
+        Example project for nuxt-typed-vuex.
+      </h2>
 
       <div class="con">
-        <div class="row">Email: {{ email }}</div>
-        <div class="row"><button @click="setEmail">Set email</button></div>
+        <div class="row">
+          Email: {{ email }}
+        </div>
+        <div class="row">
+          <button @click="setEmail">
+            Set email
+          </button>
+        </div>
       </div>
 
       <div class="con">
@@ -15,80 +25,88 @@
       </div>
 
       <div class="containerr">
-        <div class="bt" @click="increasing">inctrease</div>
-        <div class="bt" @click="decreasing">decrease</div>
-        <br />
+        <div class="bt" @click="increasing">
+          inctrease
+        </div>
+        <div class="bt" @click="decreasing">
+          decrease
+        </div>
+        <br>
       </div>
 
       <div v-show="shown" class="alrt">
         <p>really want to decrease ?</p>
-        <button @click="allowanceChanger" class="bt">yes</button>
+        <button class="bt" @click="allowanceChanger">
+          yes
+        </button>
       </div>
 
-      <div id="snackbar">Go on ...</div>
+      <div id="snackbar">
+        Go on ...
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Vue, Component, Watch } from "vue-property-decorator";
+import { Vue, Component, Watch } from 'vue-property-decorator'
 
 @Component({
-  components: {},
+  components: {}
 })
 export default class HomePage extends Vue {
-  public currentCount = 0;
-  public shown = false;
+  public currentCount = 0
+  public shown = false
 
-  //email
-  get email() {
-    return this.$accessor.email;
+  // email
+  get email () {
+    return this.$accessor.email
   }
 
-  setEmail() {
-    this.$accessor.setEmail("test@email.com");
+  setEmail () {
+    this.$accessor.setEmail('test@email.com')
   }
 
-  //counter
-  get count() {
-    return this.$accessor.counter;
+  // counter
+  get count () {
+    return this.$accessor.counter
   }
 
-  increasing(): void {
-    let updatedCount = this.currentCount++;
-    this.$accessor.increase(updatedCount);
+  increasing (): void {
+    const updatedCount = this.currentCount++
+    this.$accessor.increase(updatedCount)
   }
 
-  decreasing(): void {
-    let updatedCount = this.currentCount--;
-    this.$accessor.decrease(updatedCount);
+  decreasing (): void {
+    const updatedCount = this.currentCount--
+    this.$accessor.decrease(updatedCount)
   }
 
-  get underZeroAllowance(): boolean {
-    return this.$accessor.underZeroAllowance;
+  get underZeroAllowance (): boolean {
+    return this.$accessor.underZeroAllowance
   }
 
-  //watchers
-  @Watch("currentCount")
-  counterWatcher(val: number) {
+  // watchers
+  @Watch('currentCount')
+  counterWatcher (val: number) {
     if (val <= 0 && !this.underZeroAllowance) {
-      this.currentCount = 0;
-      this.shown = true;
+      this.currentCount = 0
+      this.shown = true
     } else {
-      this.shown = false;
+      this.shown = false
     }
   }
 
-  allowanceChanger() {
-    this.$accessor.alowanceChnger(true);
-    this.currentCount = -1;
-    this.shown = false;
+  allowanceChanger () {
+    this.$accessor.alowanceChnger(true)
+    this.currentCount = -1
+    this.shown = false
 
-    let snackbar = document.getElementById("snackbar") as HTMLDivElement;
-    snackbar.className = "show";
+    const snackbar = document.getElementById('snackbar') as HTMLDivElement
+    snackbar.className = 'show'
     setTimeout(() => {
-      snackbar.className = snackbar.className.replace("show", "");
-    }, 1000);
+      snackbar.className = snackbar.className.replace('show', '')
+    }, 1000)
   }
 }
 </script>

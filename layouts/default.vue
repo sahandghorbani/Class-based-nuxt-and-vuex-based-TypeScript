@@ -1,7 +1,7 @@
 <template>
   <div class='navbar'>
-    <NuxtLink class="bt" to="/admin"> admin</NuxtLink>
-    <NuxtLink class="bt" to="/about"> about</NuxtLink>
+    <NuxtLink class="bt" to="/admin"> admin </NuxtLink>
+    <NuxtLink class="bt" to="/about">  about </NuxtLink>
     <NuxtLink class="bt" to="/"> home page</NuxtLink>
     <nuxt />
   </div>
@@ -60,6 +60,6 @@ html {
   display: block;
   justify-content: center ;
       margin-left: auto;
-    margin-right: auto 
+    margin-right: auto ;
 }
 </style>

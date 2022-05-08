@@ -1,6 +1,6 @@
 import { getAccessorFromStore } from 'typed-vuex'
 
-import { createStore } from '/Users/sahand/Desktop/Class-based-nuxt-and-vuex-based-TypeScript/.nuxt/store'
+import { createStore } from 'C:/Users/AasalDigital-DM1/Desktop/nuxt-ts/.nuxt/store'
 
 const storeAccessor = getAccessorFromStore(createStore())
 
