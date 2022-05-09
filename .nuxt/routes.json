@@ -2,22 +2,22 @@
   {
     "name": "about",
     "path": "/about",
-    "component": "C:\\\\Users\\\\AasalDigital-DM1\\\\Desktop\\\\nuxt-ts\\\\pages\\\\about\\\\index.vue",
+    "component": "/Users/sahand/Desktop/Class-based-nuxt-and-vuex-based-TypeScript/pages/about/index.vue",
     "chunkName": "pages/about/index",
-    "_name": "_7ea642c4"
+    "_name": "_99463cc8"
   },
   {
     "name": "admin",
     "path": "/admin",
-    "component": "C:\\\\Users\\\\AasalDigital-DM1\\\\Desktop\\\\nuxt-ts\\\\pages\\\\admin\\\\index.vue",
+    "component": "/Users/sahand/Desktop/Class-based-nuxt-and-vuex-based-TypeScript/pages/admin/index.vue",
     "chunkName": "pages/admin/index",
-    "_name": "_125355c2"
+    "_name": "_7f3b1244"
   },
   {
     "name": "index",
     "path": "/",
-    "component": "C:\\\\Users\\\\AasalDigital-DM1\\\\Desktop\\\\nuxt-ts\\\\pages\\\\index.vue",
+    "component": "/Users/sahand/Desktop/Class-based-nuxt-and-vuex-based-TypeScript/pages/index.vue",
     "chunkName": "pages/index",
-    "_name": "_9ebada7a"
+    "_name": "_45e686c4"
   }
 ]

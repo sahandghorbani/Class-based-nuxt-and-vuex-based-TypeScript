@@ -15,6 +15,7 @@
     "@babel/eslint-parser": "^7.17.0",
     "@nuxtjs/eslint-config-typescript": "^10.0.0",
     "axios": "^0.27.2",
+    "js-cookie": "^3.0.1",
     "nuxt": "latest",
     "vue-class-component": "^7"
   },
@@ -23,6 +24,7 @@
     "@nuxt/typescript-build": "latest",
     "@nuxtjs/eslint-config": "^10.0.0",
     "@nuxtjs/eslint-module": "^3.1.0",
+    "@types/js-cookie": "^3.0.2",
     "eslint": "^8.15.0",
     "eslint-plugin-nuxt": "^3.2.0",
     "eslint-plugin-vue": "^8.7.1",
