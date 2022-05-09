@@ -40,8 +40,9 @@ export default class index extends Vue {
   setting () {
     const userId = 123
     const user = { name: 'sahand', age: 23 }
+    const date = new Date(new Date().getTime() + 1 * 60 * 1000)
     Cookies.set('userId', userId)
-    Cookies.set('user', JSON.stringify(user))
+    Cookies.set('user', JSON.stringify(user), { expires: date })
     // document.cookie = `userid=${userId}`
     // document.cookie = `user=${JSON.stringify(user)}`
   }
